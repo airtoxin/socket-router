@@ -1,7 +1,7 @@
 'use babel'
 
 const constants = {
-    REGISTER_CALLBACK: ':router:register:callback:'
+    REGISTER_CALLBACK: ':router:register:callback:',
     CALLBACK_PREFIX: '::callback'
 }
 
