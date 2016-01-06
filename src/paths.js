@@ -11,3 +11,11 @@ export function getRegularPath(path) {
 export function getRegularCallbackPath(path) {
     return `$$router$${path}$callback$$`
 }
+
+export function getRoomPath(path, roomName) {
+    return `$$router$${path}$room${roomName}$$`
+}
+
+export function getRoomCallbackpath(path, roomName) {
+    return `$$router$${path}$room${roomName}$callback$$`
+}
