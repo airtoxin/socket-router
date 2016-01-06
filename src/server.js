@@ -25,7 +25,7 @@ export default class Server {
         this._socket = socket
         for (let {path, callback} of this._routes) {
             this._socket.on(path, (...requestArgs) => {
-                callback(new Request(requestArgs), new Response(path, this._socket))
+                callback(new Request(path, requestArgs), new Response(path, this._socket))
             })
         }
     }

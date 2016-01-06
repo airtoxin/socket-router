@@ -1,7 +1,8 @@
 'use babel'
 
 export default class Request {
-    constructor(requestArgs) {
+    constructor(path, requestArgs) {
+        this.path = path
         this.args = requestArgs
     }
 }
