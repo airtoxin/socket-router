@@ -1,5 +1,6 @@
 'use babel'
 
+import 'babel-polyfill'
 import ServerRouter from './server'
 import ClientRouter from './client'
 

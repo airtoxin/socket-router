@@ -8,7 +8,9 @@ export default class Server {
     constructor(io) {
         this._io = io
         this._socket = null
-        this._io.on('connection', this._onConnection)
+        this._io.on('connection', (socket) => {
+            this._onConnection(socket)
+        })
         this._routes = []
     }
 

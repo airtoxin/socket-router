@@ -9,6 +9,6 @@ export default class Response {
     }
 
     send(...responseArgs) {
-        this._socket.emit(path + constants.CALLBACK_PREFIX, ...responseArgs)
+        this._socket.emit(this.path + constants.CALLBACK_PREFIX, ...responseArgs)
     }
 }

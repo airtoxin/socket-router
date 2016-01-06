@@ -9,8 +9,15 @@ export default class Client {
     }
 
     _registerCallback(path, callback) {
-        this._io.on(path + CALLBACK_PREFIX, (...responseArgs) => {
+        this._io.on(path + constants.CALLBACK_PREFIX, (...responseArgs) => {
             callback(...responseArgs)
+        })
+    }
+
+    req(path, ...requestArgs) {
+        return new Promise((resolve) => {
+            this._registerCallback(path, resolve)
+            this._io.emit(path, ...requestArgs)
         })
     }
 }
