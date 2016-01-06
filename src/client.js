@@ -21,4 +21,8 @@ export default class Client {
             this._io.emit(path, ...requestArgs)
         })
     }
+
+    send(path, ...requestArgs) {
+        this._io.emit(path, ...requestArgs)
+    }
 }

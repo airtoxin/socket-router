@@ -15,3 +15,7 @@ router.get('/yoyo', (request, response) => {
     console.log('@Route /yoyo')
     response.fail('failed!!!!!!!!!')
 })
+
+router.get('/one-way', (request, response) => {
+    console.log('@Route one-way')
+})

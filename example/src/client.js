@@ -15,3 +15,5 @@ client.req('/yoyo', 'hogehoge').then((...args) => {
 }).catch((...args) => {
     console.log('@fail args', args)
 })
+
+client.send('/one-way', 'hello')
