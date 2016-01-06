@@ -10,3 +10,8 @@ router.get('/', (request, response) => {
     console.log('@Route /')
     response.send('Hello world!')
 })
+
+router.get('/yoyo', (request, response) => {
+    console.log('@Route /yoyo')
+    response.fail('failed!!!!!!!!!')
+})

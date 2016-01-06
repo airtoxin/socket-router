@@ -9,3 +9,9 @@ let client = createClient(io)
 client.req('/').then((message) => {
     console.log('@message', message)
 })
+
+client.req('/yoyo', 'hogehoge').then((...args) => {
+    console.log('@success args', args)
+}).catch((...args) => {
+    console.log('@fail args', args)
+})

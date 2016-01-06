@@ -8,15 +8,16 @@ export default class Client {
         this._io.on(constants.REGISTER_CALLBACK, this._registerCallback)
     }
 
-    _registerCallback(path, callback) {
-        this._io.on(path + constants.CALLBACK_PREFIX, (...responseArgs) => {
-            callback(...responseArgs)
+    _registerCallback(path, resolve, reject) {
+        this._io.on(path + constants.CALLBACK_PREFIX, (hasError, ...responseArgs) => {
+            if (hasError) return reject(...responseArgs)
+            resolve(...responseArgs)
         })
     }
 
     req(path, ...requestArgs) {
-        return new Promise((resolve) => {
-            this._registerCallback(path, resolve)
+        return new Promise((resolve, reject) => {
+            this._registerCallback(path, resolve, reject)
             this._io.emit(path, ...requestArgs)
         })
     }
