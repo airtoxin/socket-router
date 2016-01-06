@@ -2,7 +2,7 @@
 
 import Request from './request'
 import Response from './response'
-import constants from './constants'
+import {getRegularPath} from './paths'
 
 export default class Server {
     constructor(io) {
@@ -24,7 +24,7 @@ export default class Server {
     _onConnection(socket) {
         this._socket = socket
         for (let {path, callback} of this._routes) {
-            this._socket.on(path, (...requestArgs) => {
+            this._socket.on(getRegularPath(path), (...requestArgs) => {
                 callback(new Request(path, requestArgs), new Response(path, this._socket))
             })
         }
